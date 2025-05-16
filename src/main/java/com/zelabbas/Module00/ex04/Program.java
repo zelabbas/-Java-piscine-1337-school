@@ -44,13 +44,16 @@ public class Program {
     }
 
     public static void displayGraphs(int[] countArray, char[] topTen) {
+        System.out.println(countArray[topTen[0]]);
         for (int level = 10; level >= 1; level--) {
             for (int i = 0; i < TopSize; i++) {
                 int score = (int) Math.floor(10.0 * countArray[topTen[i]] / countArray[topTen[0]]);
                 if (score >= level) {
-                    System.out.print("# ");
+                    System.out.print("#   ");
+                } else if (score + 1 >= level) {
+                    System.out.print(countArray[topTen[i]] + "  ");
                 } else {
-                    System.out.print("  "); // 2 spaces to align with "* "
+                    System.out.print("    "); // 2 spaces to align with!
                 }
             }
             System.out.println();
@@ -58,7 +61,7 @@ public class Program {
 
         for (int i = 0; i < topTen.length; i++) {
             if (topTen[i] > 0)
-                System.out.print(topTen[i] + " ");
+                System.out.print(topTen[i] + "   ");
         }
     }
 
