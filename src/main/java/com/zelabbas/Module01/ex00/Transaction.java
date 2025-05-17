@@ -21,7 +21,7 @@ public class Transaction {
     }
 
     Transaction(User sender, User recipient, long amount, Category category) {
-        id = UUID.randomUUID();
+        this.id = UUID.randomUUID();
         this.sender = sender;
         this.recipient = recipient;
         this.amount = amount;
@@ -69,6 +69,10 @@ public class Transaction {
     public void makeTransaction(long amount) {
         if (amount < 0) {
             throw new IllegalArgumentException("Amount must be greater than or equal to zero");
+        }
+
+        if (sender == null || recipient == null) {
+            throw new IllegalArgumentException("Sender and recipient must be set");
         }
 
         if (sender.getBalance() < amount) {
