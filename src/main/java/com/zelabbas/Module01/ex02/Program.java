@@ -31,6 +31,9 @@ public class Program {
                 System.out.println(e);
             }
 
+            System.out.println("number Users registered ->: " + list.getUsersCount());
+
+
 
         } catch (Exception e) {
             System.err.println(e.getMessage());
