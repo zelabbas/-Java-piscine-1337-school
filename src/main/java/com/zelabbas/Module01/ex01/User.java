@@ -16,16 +16,12 @@ public class User {
     }
 
     // when you use this make sure to use  UserIdsGenerator.getInstance().generateId() in failed id !
-    public User(long id, String name, long balance) {
+    public User(String name, long balance) {
         if (balance < 0) {
             throw new IllegalArgumentException("Balance cannot be negative");
         }
 
-        if (id < 0) {
-            throw new IllegalArgumentException("Id cannot be negative");
-        }
-
-        this.id = id;
+        this.id = UserIdsGenerator.getInstance().generateId();
         this.Name = name;
         this.Balance = balance;
     }
