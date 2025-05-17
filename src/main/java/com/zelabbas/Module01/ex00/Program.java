@@ -16,8 +16,9 @@ public class Program {
 
             // Create a transaction (Alice sends 200 to Bob)
             int transferAmount = 900;
-            Transaction transaction = new Transaction(
-                    alice, bob, transferAmount, Transaction.Category.DEBIT);
+//            Transaction transaction = new Transaction(
+//                    alice, bob, transferAmount, Transaction.Category.DEBIT);
+            Transaction transaction = new Transaction();
 
             System.out.println("\nTransaction created:");
             transaction.makeTransaction(transaction.getAmount());
