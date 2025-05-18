@@ -1,5 +1,7 @@
 package com.zelabbas.Module01.ex03;
 
+import java.util.UUID;
+
 public class Program {
     public static void main(String[] args) {
         TransactionsLinkedList transactionList = new TransactionsLinkedList();
@@ -28,16 +30,22 @@ public class Program {
 
         try {
             Transaction[] transactions = transactionList.getTransactionsToArray();
+            UUID Id;
             for (int i = 0; i < transactions.length; i++) {
                 try {
                     transactions[i].makeTransaction(transactions[i].getAmount());
                 }catch (Exception e) {
+                    Id = transactions[i].getId();
                     System.out.println("Transaction id: " + transactions[i].getId() + " can't be done reason -> " + e.getMessage());
+                    transactionList.removeTransactionByID(Id);
                 }
             }
+
         }catch (Exception e) {
             System.err.println(e.getMessage());
         }
+
+
 
         System.out.println(transactionList);
     }
